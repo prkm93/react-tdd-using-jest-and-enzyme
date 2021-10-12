@@ -19,6 +19,7 @@ function App() {
         </a>
       </header> */}
       <h1>This is counter</h1>
+      <button id="increment-btn">Increment</button>
     </div>
   );
 }

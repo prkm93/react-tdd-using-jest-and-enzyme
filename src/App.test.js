@@ -16,6 +16,12 @@ configure({ adapter: new Adapter() });
 describe("Counter testing", () => {
   test("render title of counter",  () => {
     const wrapper = shallow(<App/>);
-    
+    console.log(wrapper.debug());
+    expect(wrapper.find('h1').text()).toContain('This is counter');
+  })
+
+  test("render button with text increment", () => {
+    const wrapper = shallow(<App/>);
+    expect(wrapper.find('#increment-btn').text()).toBe('Increment');
   })
 })
