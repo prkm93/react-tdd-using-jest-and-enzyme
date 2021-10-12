@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
 
 function App() {
+
+  const [counter, setCounter] = useState(0);
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -20,6 +21,8 @@ function App() {
       </header> */}
       <h1>This is counter</h1>
       <button id="increment-btn">Increment</button>
+      <button id="decrement-btn">Decrement</button>
+      <div id="counter-value">{counter}</div>
     </div>
   );
 }

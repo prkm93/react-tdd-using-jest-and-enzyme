@@ -14,14 +14,26 @@ configure({ adapter: new Adapter() });
 
 
 describe("Counter testing", () => {
+
+  let wrapper;
+
+  beforeEach(() => {
+     wrapper = shallow(<App/>);
+  })
+  
   test("render title of counter",  () => {
-    const wrapper = shallow(<App/>);
-    console.log(wrapper.debug());
     expect(wrapper.find('h1').text()).toContain('This is counter');
   })
 
   test("render button with text increment", () => {
-    const wrapper = shallow(<App/>);
     expect(wrapper.find('#increment-btn').text()).toBe('Increment');
+  })
+
+  test("render button with text decrement", () => {
+    expect(wrapper.find('#decrement-btn').text()).toBe('Decrement');
+  })
+
+  test("render the initial value of state in div", () => {
+    expect(wrapper.find('#counter-value').text()).toBe("0");
   })
 })
