@@ -20,8 +20,8 @@ function App() {
         </a>
       </header> */}
       <h1>This is counter</h1>
-      <button id="increment-btn">Increment</button>
-      <button id="decrement-btn">Decrement</button>
+      <button id="increment-btn" onClick={() => setCounter(cnt => cnt + 1)}>Increment</button>
+      <button id="decrement-btn" onClick={() => setCounter(cnt => cnt - 1)}>Decrement</button>
       <div id="counter-value">{counter}</div>
     </div>
   );
