@@ -1,10 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import Counter from './Counter';
 // setup file
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
+import {shallow, mount } from 'enzyme';
 
 // test('renders learn react link', () => {
 //   render(<App />);
@@ -18,9 +16,10 @@ describe("Counter testing", () => {
   let wrapper;
 
   beforeEach(() => {
-     wrapper = shallow(<App/>);
+     wrapper = shallow(<Counter/>);
+     console.log(wrapper.debug());
   })
-  
+
   test("render title of counter",  () => {
     expect(wrapper.find('h1').text()).toContain('This is counter');
   })
@@ -45,5 +44,13 @@ describe("Counter testing", () => {
   test("render the click event of decrement button and decrement the counter value", () => {
     wrapper.find("#decrement-btn").simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe("-1");
+  })
+
+  test("render the click event of decrement button and disable btn when counter value < 0", () => {
+    wrapper.find("#decrement-btn").simulate('click')
+    const val = wrapper.find('#counter-value').text();
+    if (val < 0) {
+
+    }
   })
 })
